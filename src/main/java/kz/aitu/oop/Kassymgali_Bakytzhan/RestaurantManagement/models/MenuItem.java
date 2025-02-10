@@ -17,14 +17,13 @@ public class MenuItem {
 
     public MenuItem() {}
 
-    // ✅ Добавленный конструктор с id
+
     public MenuItem(Long id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    // ✅ Оставляем старый конструктор (без id) для создания новых объектов
     public MenuItem(String name, double price) {
         this.name = name;
         this.price = price;

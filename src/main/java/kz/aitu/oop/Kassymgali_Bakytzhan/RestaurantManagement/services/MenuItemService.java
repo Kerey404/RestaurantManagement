@@ -18,22 +18,20 @@ public class MenuItemService {
         this.repository = repository;
     }
 
-    // Получение всех элементов меню
+
     public List<MenuItem> getAllMenuItems() {
         return repository.findAll();
     }
 
-    // Получение элемента меню по ID
     public Optional<MenuItem> getMenuItemById(Long id) {
         return repository.findById(id);
     }
 
-    // Добавление нового элемента меню
     public MenuItem addMenuItem(MenuItem menuItem) {
         return repository.save(menuItem);
     }
 
-    // Обновление существующего элемента меню
+
     public MenuItem updateMenuItem(Long id, MenuItem updatedMenuItem) {
         return repository.findById(id).map(menuItem -> {
             menuItem.setName(updatedMenuItem.getName());
@@ -42,7 +40,7 @@ public class MenuItemService {
         }).orElseThrow(() -> new RuntimeException("Меню с ID " + id + " не найдено"));
     }
 
-    // Удаление элемента меню
+
     public void deleteMenuItem(Long id) {
         repository.deleteById(id);
     }

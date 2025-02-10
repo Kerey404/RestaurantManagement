@@ -20,13 +20,13 @@ public class MenuItemController {
         this.service = service;
     }
 
-    // ✅ Получение всех элементов меню
+    
     @GetMapping("/all")
     public List<MenuItem> getAllMenuItems() {
         return service.getAllMenuItems();
     }
 
-    // ✅ Получение элемента меню по ID
+    
     @GetMapping("/{id}")
     public ResponseEntity<MenuItem> getMenuItemById(@PathVariable Long id) {
         Optional<MenuItem> menuItem = service.getMenuItemById(id);
@@ -34,14 +34,14 @@ public class MenuItemController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // ✅ Добавление нового элемента меню
+    
     @PostMapping("/add")
     public ResponseEntity<MenuItem> addMenuItem(@RequestBody MenuItem menuItem) {
         MenuItem savedMenuItem = service.addMenuItem(menuItem);
         return ResponseEntity.ok(savedMenuItem);
     }
 
-    // ✅ Обновление элемента меню
+    
     @PutMapping("/update/{id}")
     public ResponseEntity<MenuItem> updateMenuItem(@PathVariable Long id, @RequestBody MenuItem updatedMenuItem) {
         try {
@@ -52,7 +52,7 @@ public class MenuItemController {
         }
     }
 
-    // ✅ Удаление элемента меню
+ 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteMenuItem(@PathVariable Long id) {
         service.deleteMenuItem(id);
